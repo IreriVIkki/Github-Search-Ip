@@ -1,6 +1,6 @@
 <div class="container-fluid p-0">
   <header id="navbar">
-    <app-searchbar></app-searchbar>
+    <app-searchbar (userSearch)="getSearchData($event)"></app-searchbar>
   </header>
   <div class="main mx-auto">
     <div class="sidebar">

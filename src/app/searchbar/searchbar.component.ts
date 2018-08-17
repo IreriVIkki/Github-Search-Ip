@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../user.service";
 import { Key } from "protractor";
 
@@ -13,15 +13,18 @@ export class SearchbarComponent implements OnInit {
   public user;
 
   public search: string;
-  public userSearch: string;
+  public Search: string;
   public ids: Array<number> = [];
+  @Output()
+  userSearch: EventEmitter<any> = new EventEmitter<any>();
 
   getUser() {
-    this.search = this.userSearch;
+    this.search = this.Search;
     // console.log(event);
     console.log(this.user);
     this._User.getUserSearchObject(this.search).subscribe(data => {
       this.user = data;
+      this.userSearch.emit(data);
       console.log(this.user.name);
     });
   }

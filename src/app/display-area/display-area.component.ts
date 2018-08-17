@@ -23,6 +23,10 @@ export class DisplayAreaComponent implements OnInit {
     });
   }
 
+  getSearchData(data: object) {
+    this.userDetailsObject = data;
+  }
+
   getRepositories(): any {
     this._user
       .getExtraApiData(this.userDetailsObject.repos_url)

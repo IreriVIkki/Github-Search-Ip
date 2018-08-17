@@ -10,7 +10,7 @@ export class UserService {
 
   apiKey: string = environment.apiKey;
 
-  public user_api = `https://api.github.com/users/IreriVikki?api-key=${
+  public user_api = `https://api.github.com/users/IreriVikki?userSearch=${
     this.apiKey
   }`;
 
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   getUserSearchObject(userName): any {
-    let api_url = `https://api.github.com/users/${userName}?access_token=f${
+    let api_url = `https://api.github.com/users/${userName}?userSearch=${
       this.apiKey
     }`;
     return this._http.get(api_url);
