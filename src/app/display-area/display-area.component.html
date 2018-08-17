@@ -40,8 +40,8 @@
                 <span>{{ userDetailsObject.followers}}</span>
               </a>
             </li>
-            <li class="mx-auto py-2">
-              <a href="">Following
+            <li on-click="getFollowing()" class="mx-auto py-2">
+              <a href="#">Following
                 <span>{{ userDetailsObject.following}}</span>
               </a>
             </li>
@@ -54,8 +54,8 @@
         </div>
       </div>
       <hr>
-      <!-- Repositories display area -->
       <br>
+      <!-- Repositories display area -->
       <div *ngFor="let repo of userRepos">
         <div class="repos d-flex flex-column">
           <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">Repository Name {{repo.name}}</label>
@@ -79,6 +79,61 @@
         </div>
       </div>
       <!-- followers display area -->
+      <div class="user" *ngFor="let follower of userFollowers">
+        <div class="user-info d-flex">
+          <div class="name-id w-75 d-flex flex-column">
+            <label for="followerName">Name {{follower.login}}</label>
+            <label for="followerId">id: {{follower.id}}</label>
+          </div>
+          <div class="follower-avatar card">
+            <img class="card-img" src="{{follower.avatar_url}}" alt="">
+          </div>
+        </div>
+        <div class="account-details">
+          <ul class="d-flex">
+            <li on-click="getRepositories()" class="mx-auto py-2">
+              <a href="{{ follower.html_url}}">Repositories
+              </a>
+            </li>
+            <li on-click="getFollowers()" class="mx-auto py-2">
+              <a href="{{ follower.html_url}}">Followers
+              </a>
+            </li>
+            <li class="mx-auto py-2">
+              <a href="{{ follower.html_url}}">Following
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- following display area -->
+      <div class="user" *ngFor="let following of userfollowing">
+        <div class="user-info d-flex">
+          <div class="name-id w-75 d-flex flex-column">
+            <label for="followingName">Name {{following.login}}</label>
+            <label for="followingId">id: {{following.id}}</label>
+          </div>
+          <div class="followers-avatar card">
+            <img class="card-img" src="{{following.avatar_url}}" alt="">
+          </div>
+        </div>
+        <div class="account-details">
+          <ul class="d-flex">
+            <li on-click="getRepositories()" class="mx-auto py-2">
+              <a href="{{ following.html_url}}">Repositories
+              </a>
+            </li>
+            <li on-click="getfollowings()" class="mx-auto py-2">
+              <a href="{{ following.html_url}}">followings
+              </a>
+            </li>
+            <li class="mx-auto py-2">
+              <a href="{{ following.html_url}}">Following
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div style="margin-top: 200px;"></div>

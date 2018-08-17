@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: "root"
@@ -7,8 +8,11 @@ import { HttpClient } from "@angular/common/http";
 export class UserService {
   constructor(private _http: HttpClient) {}
 
-  public user_api =
-    "https://api.github.com/users/IreriVikki?api-key=fddb95f212a813e2dc0d6085a7bacd7ef55a9eda";
+  apiKey: string = environment.apiKey;
+
+  public user_api = `https://api.github.com/users/IreriVikki?api-key=${
+    this.apiKey
+  }`;
 
   getUserObject(): any {
     return this._http.get(this.user_api);
@@ -19,7 +23,9 @@ export class UserService {
   }
 
   getUserSearchObject(userName): any {
-    let api_url = `https://api.github.com/users/${userName}?access_token=fddb95f212a813e2dc0d6085a7bacd7ef55a9eda`;
+    let api_url = `https://api.github.com/users/${userName}?access_token=f${
+      this.apiKey
+    }`;
     return this._http.get(api_url);
   }
 }
