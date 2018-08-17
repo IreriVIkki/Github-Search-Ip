@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 3fr 7fr;
   grid-template-areas: "sidebar display";
-  width: 85%;
+  width: 80%;
   display: flex;
 }
 
@@ -20,6 +20,10 @@
   margin-bottom: 0;
   padding: 0;
   background-color: #eece1a;
+}
+
+.avatar {
+  width: 125px;
 }
 
 .profile-nav {}

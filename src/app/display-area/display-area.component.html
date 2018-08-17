@@ -9,15 +9,15 @@
     <div class="display">
       <div class="personalDetails d-flex mt-5">
         <div class="details d-flex flex-column">
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">name</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">id</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">email</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">bio</label>
+          <label class="form-control-lg d-flex align-items-center bg-transparent" for="name">{{userDetailsObject.name}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">User id: {{userDetailsObject.id}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">{{userDetailsObject.email}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">{{userDetailsObject.bio}}</label>
         </div>
         <div class="avatar ml-auto">
           <div class="card">
-            <img class="card-img-top" src="" alt="">
-            <p class="card-title">type user</p>
+            <img class="card-img-top" src="{{userDetailsObject.avatar_url}}" alt="">
+            <p class="card-title text-center mb-0">{{userDetailsObject.type}}</p>
           </div>
         </div>
       </div>
@@ -28,16 +28,16 @@
       <div>
         <div class="mt-2">
           <ul id="profile-nav" class="d-flex">
-            <li class="mx-auto">
-              <a href="">Repositories</a>
+            <li on-click="getRepositories()" class="mx-auto py-2">
+              <a href="#">Repositories</a>
             </li>
-            <li class="mx-auto">
+            <li class="mx-auto py-2">
               <a href="">Followers</a>
             </li>
-            <li class="mx-auto">
+            <li class="mx-auto py-2">
               <a href="">Following</a>
             </li>
-            <li class="mx-auto">
+            <li class="mx-auto py-2">
               <a href="">Subscriptions</a>
             </li>
           </ul>
