@@ -19,7 +19,7 @@ export class SearchbarComponent implements OnInit {
   getUser() {
     this.search = this.userSearch;
     console.log(event);
-    this.user = this._User.getUserObject(this.search).subscribe(data => {
+    this.user = this._User.getUserSearchObject(this.search).subscribe(data => {
       this.user = data;
       console.log(this.user.name);
       console.log(this.ids);
