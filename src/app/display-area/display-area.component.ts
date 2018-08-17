@@ -12,6 +12,7 @@ export class DisplayAreaComponent implements OnInit {
   // declare gloabal variables
   public userDetailsObject;
   public userRepos: Array<object>;
+  public userFollowers;
 
   ngOnInit() {
     this._user.getUserObject().subscribe(data => {
@@ -27,6 +28,15 @@ export class DisplayAreaComponent implements OnInit {
       .subscribe(data => {
         this.userRepos = data;
         console.log(this.userRepos[0]);
+      });
+  }
+
+  getFollowers(): any {
+    this._user
+      .getExtraApiData(this.userDetailsObject.followers_url)
+      .subscribe(data => {
+        this.userFollowers = data;
+        console.log(this.userFollowers);
       });
   }
 }

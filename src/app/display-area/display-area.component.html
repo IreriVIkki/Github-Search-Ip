@@ -31,16 +31,24 @@
         <div class="mt-2">
           <ul id="profile-nav" class="d-flex">
             <li on-click="getRepositories()" class="mx-auto py-2">
-              <a href="#">Repositories</a>
+              <a href="#">Repositories
+                <span>{{ userDetailsObject.public_repos}}</span>
+              </a>
+            </li>
+            <li on-click="getFollowers()" class="mx-auto py-2">
+              <a href="#">Followers
+                <span>{{ userDetailsObject.followers}}</span>
+              </a>
             </li>
             <li class="mx-auto py-2">
-              <a href="">Followers</a>
+              <a href="">Following
+                <span>{{ userDetailsObject.following}}</span>
+              </a>
             </li>
             <li class="mx-auto py-2">
-              <a href="">Following</a>
-            </li>
-            <li class="mx-auto py-2">
-              <a href="">Subscriptions</a>
+              <a href="">Subscriptions
+                <span>{{ userDetailsObject.public_repos}}</span>
+              </a>
             </li>
           </ul>
         </div>
