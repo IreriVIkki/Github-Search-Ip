@@ -1,13 +1,62 @@
-<div class="container-fluid p-0 bg-info">
+<div class="container-fluid p-0">
   <header id="navbar">
     <app-searchbar></app-searchbar>
   </header>
-  <div class="main">
+  <div class="main mx-auto">
     <div class="sidebar">
       <app-sidebar></app-sidebar>
     </div>
     <div class="display">
-
+      <div class="personalDetails d-flex mt-5">
+        <div class="details d-flex flex-column">
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">name</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">id</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">email</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name">bio</label>
+        </div>
+        <div class="avatar ml-auto">
+          <div class="card">
+            <img class="card-img-top" src="" alt="">
+            <p class="card-title">type user</p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <button class="btn btn-dark">View User on Github</button>
+      </div>
+      <hr>
+      <div>
+        <div class="mt-2">
+          <ul id="profile-nav" class="d-flex">
+            <li class="mx-auto">
+              <a href="">Repositories</a>
+            </li>
+            <li class="mx-auto">
+              <a href="">Followers</a>
+            </li>
+            <li class="mx-auto">
+              <a href="">Following</a>
+            </li>
+            <li class="mx-auto">
+              <a href="">Subscriptions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- Repositories display area -->
+      <br>
+      <div class="repos d-flex flex-column">
+        <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">repoName</label>
+        <div class="ml-5">
+          <label class="form-control-sm w-auto d-inline pl-0 align-items-center d-flex" for="privacy">Public</label>
+          <button class="btn btn-dark d-block">View Repository on Github</button>
+          <label class="orm-control-sm w-auto d-inline align-items-center mt-2 d-flex" for="commits">commits</label>
+          <label class="orm-control-sm w-auto d-inline align-items-center d-flex" for="forks">forks</label>
+          <textarea class="form-control" name="description" disabled id="description" rows="4">description</textarea>
+        </div>
+      </div>
+      <!-- followers display area -->
     </div>
   </div>
 </div>

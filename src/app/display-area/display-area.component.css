@@ -1,13 +1,25 @@
 .main {
   display: grid;
   grid-template-columns: 3fr 7fr;
-  grid-template-areas: "sidebar display"
+  grid-template-areas: "sidebar display";
+  width: 85%;
+  display: flex;
 }
 
 .sidebar {
   grid-area: sidebar;
+  width: 30%;
 }
 
 .display {
   grid-area: display;
+  width: 70%;
 }
+
+.details * {
+  margin-bottom: 0;
+  padding: 0;
+  background-color: #eece1a;
+}
+
+.profile-nav {}
