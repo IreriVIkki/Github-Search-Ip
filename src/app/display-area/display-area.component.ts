@@ -17,6 +17,7 @@ export class DisplayAreaComponent implements OnInit {
   public userFollowing;
   public searchString;
   public searchText;
+  // public clearObj: = new Object();
 
   ngOnInit() {
     this._user.getUserObject().subscribe(data => {
@@ -41,16 +42,15 @@ export class DisplayAreaComponent implements OnInit {
       .getExtraApiData(this.userDetailsObject.repos_url)
       .subscribe(data => {
         this.userRepos = data;
-        // console.log(this.userRepos[0]);
       });
   }
 
   getFollowers(): any {
+    this.userRepos = 
     this._user
       .getExtraApiData(this.userDetailsObject.followers_url)
       .subscribe(data => {
         this.userFollowers = data;
-        // console.log(this.userFollowers);
       });
   }
   getFollowing(): any {
@@ -58,7 +58,6 @@ export class DisplayAreaComponent implements OnInit {
       .getExtraApiData(this.userDetailsObject.following_url)
       .subscribe(data => {
         this.userFollowing = data;
-        console.log(this.userFollowing);
       });
   }
 }
