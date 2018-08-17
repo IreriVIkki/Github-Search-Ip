@@ -22,7 +22,9 @@
         </div>
       </div>
       <div class="">
-        <button class="btn btn-dark">View User on Github</button>
+        <button class="btn btn-dark">
+          <a href="{{userDetailsObject.html_url}}">View User on Github</a>
+        </button>
       </div>
       <hr>
       <div>
@@ -46,14 +48,26 @@
       <hr>
       <!-- Repositories display area -->
       <br>
-      <div class="repos d-flex flex-column">
-        <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">repoName</label>
-        <div class="ml-5">
-          <label class="form-control-sm w-auto d-inline pl-0 align-items-center d-flex" for="privacy">Public</label>
-          <button class="btn btn-dark d-block">View Repository on Github</button>
-          <label class="orm-control-sm w-auto d-inline align-items-center mt-2 d-flex" for="commits">commits</label>
-          <label class="orm-control-sm w-auto d-inline align-items-center d-flex" for="forks">forks</label>
-          <textarea class="form-control" name="description" disabled id="description" rows="4">description</textarea>
+      <div *ngFor="let repo of userRepos">
+        <div class="repos d-flex flex-column">
+          <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">Repository Name {{repo.name}}</label>
+          <div class="ml-5 mb-2">
+            <div class="d-flex mb-2">
+              <div class="w-50">
+                <label class="w-auto d-inline pl-0 align-items-center d-flex" for="privacy">Private: {{repo.private}}</label>
+                <label class=" w-auto d-inline align-items-center d-flex" for="forks">forks {{repo.forks_count}}</label>
+              </div>
+              <div class="ml-3">
+                <label class="w-auto d-inline align-items-center d-flex" for="commits">default_branch {{repo.default_branch}}</label>
+                <button class="btn btn-dark d-block">
+                  <a href="{{repo.html_url}}" target="_blank">View Repository on Github</a>
+                </button>
+              </div>
+            </div>
+            <label class="form-control-sm mb-0" for="description">Project Description</label>
+            <textarea class="form-control" name="description" disabled id="description" rows="2">
+              {{repo.description}}</textarea>
+          </div>
         </div>
       </div>
       <!-- followers display area -->
