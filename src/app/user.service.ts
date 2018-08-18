@@ -1,12 +1,34 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../environments/environment";
+import { reject } from "q";
+import { User } from "./user";
 
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
-  constructor(private _http: HttpClient) {}
+  user: User;
+
+  constructor(private _http: HttpClient) {
+    this.user = new User(
+      "",
+      0,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      0,
+      0,
+      0,
+      ""
+    );
+  }
 
   apiKey: string = environment.apiKey;
 
@@ -15,7 +37,53 @@ export class UserService {
   }`;
 
   getUserObject(): any {
-    return this._http.get(this.user_api);
+    interface ApiResponse {
+      login: string;
+      id: number;
+      email: string;
+      bio: string;
+      company: string;
+      blog: string;
+      location: string;
+      avatar_url: string;
+      repos_url: string;
+      type: string;
+      html_url: string;
+      public_repos: number;
+      followers: number;
+      following: number;
+      subscriptions: string;
+    }
+    let promise = new Promise((resolve, reject) => {
+      this._http
+        .get<ApiResponse>(this.user_api)
+        .toPromise()
+        .then(
+          response => {
+            this.user.login = response.login;
+            this.user.id = response.id;
+            this.user.email = response.email;
+            this.user.bio = response.bio;
+            this.user.company = response.company;
+            this.user.blog = response.blog;
+            this.user.location = response.location;
+            this.user.avatar_url = response.avatar_url;
+            this.user.repos_url = response.repos_url;
+            this.user.type = response.type;
+            this.user.html_url = response.html_url;
+            this.user.public_repos = response.public_repos;
+            this.user.followers = response.followers;
+            this.user.following = response.following;
+            this.user.subscriptions = response.subscriptions;
+
+            resolve();
+          },
+          error => {
+            reject(error);
+          }
+        );
+    });
+    return promise;
   }
 
   getRepoObject(text): any {

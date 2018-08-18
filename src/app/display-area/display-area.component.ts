@@ -11,21 +11,16 @@ export class DisplayAreaComponent implements OnInit {
 
   // declare gloabal variables
   public userDetailsObject;
-  public userSearchObject;
   public userRepos: Array<object>;
   public userFollowers;
   public userFollowing;
-  public searchString;
   public searchText;
   public reposObj;
   // public clearObj: = new Object();
 
   ngOnInit() {
-    this._user.getUserObject().subscribe(data => {
-      this.userDetailsObject = data;
-      // console.log(this.userDetailsObject.name);
-      // console.log(this.userDetailsObject);
-    });
+    this._user.getUserObject();
+    this.userDetailsObject = this._user.user;
   }
 
   getSearchData(text: String) {
@@ -45,6 +40,7 @@ export class DisplayAreaComponent implements OnInit {
       .getExtraApiData(this.userDetailsObject.repos_url)
       .subscribe(data => {
         this.userRepos = data;
+        console.log(this.userRepos);
       });
   }
 
