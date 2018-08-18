@@ -3,12 +3,18 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../environments/environment";
 import { reject } from "q";
 import { User } from "./user";
+import { Repos } from "./repos";
 
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
   user: User;
+  repo: Repos;
+  apiKey: string = environment.apiKey;
+  public user_api = `https://api.github.com/users/IreriVikki?access_token=${
+    this.apiKey
+  }`;
 
   constructor(private _http: HttpClient) {
     this.user = new User(
@@ -28,15 +34,17 @@ export class UserService {
       0,
       ""
     );
+
+    this.repo = new Repos("", false, 0, "", "", "");
+
+    interface Repo {}
   }
 
-  apiKey: string = environment.apiKey;
+  getReposApiData(api_url): any {
+    return this._http.get(api_url);
+  }
 
-  public user_api = `https://api.github.com/users/IreriVikki?access_token=${
-    this.apiKey
-  }`;
-
-  getUserObject(): any {
+  getUserObject(): Object {
     interface ApiResponse {
       login: string;
       id: number;
