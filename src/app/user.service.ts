@@ -18,6 +18,13 @@ export class UserService {
     return this._http.get(this.user_api);
   }
 
+  getRepoObject(text): any {
+    let repos_api = `https://api.github.com/search/repositories?q=${text}+language:assembly&sort=stars&order=desc?access_token=${
+      this.apiKey
+    }`;
+    return this._http.get(repos_api);
+  }
+
   getExtraApiData(api_url): any {
     return this._http.get(api_url);
   }
