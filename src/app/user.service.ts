@@ -4,6 +4,7 @@ import { environment } from "../environments/environment";
 import { reject } from "q";
 import { User } from "./user";
 import { Repos } from "./repos";
+import { resolve } from "path";
 
 @Injectable({
   providedIn: "root"
@@ -12,7 +13,7 @@ export class UserService {
   user: User;
   repo: Repos;
   apiKey: string = environment.apiKey;
-  public user_api = `https://api.github.com/users/IreriVikki?access_token=${
+  public user_api = `https://api.github.com/users/melisamalala?access_token=${
     this.apiKey
   }`;
 
@@ -41,7 +42,19 @@ export class UserService {
   }
 
   getReposApiData(api_url): any {
-    return this._http.get(api_url);
+    let promise = new Promise((resolve, reject) => {
+      this._http
+        .get(api_url)
+        .toPromise()
+        .then(
+          response => {
+            resolve();
+          },
+          error => {
+            reject(error);
+          }
+        );
+    });
   }
 
   getUserObject(): Object {

@@ -12,10 +12,11 @@ export class SidebarComponent implements OnInit {
   constructor(public _user: UserService) {}
 
   ngOnInit() {
-    this._user.getUserObject().subscribe(data => {
-      this.userDetailsObj = data;
-      // console.log(this.userDetailsObject.name);
-      // console.log(this.userDetailsObject);
-    });
+    this._user.getUserObject();
+    this.userDetailsObj = this._user.user;
+    // this._user.getUserObject()
+    // console.log(this.userDetailsObject.name);
+    // console.log(this.userDetailsObj);
+    // });
   }
 }

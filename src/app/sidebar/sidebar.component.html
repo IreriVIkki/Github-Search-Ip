@@ -1,3 +1,55 @@
-<div>
+<div class="mt-5 mr-5">
+  <div class="card">
+    <img class="card-img-top" src="{{userDetailsObj.avatar_url}}" alt="">
+    <p class="card-header text-center">{{userDetailsObj.login}}</p>
+  </div>
+  <div>
+    <div class="mt-2" *ngIf="userDetailsObj.login">
+      <label class="w-50" for="login">Name</label>
+      <label for="login">{{userDetailsObj.login}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.id">
+      <label class="w-50" for="login">User Id</label>
+      <label for="login">{{userDetailsObj.id}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.email">
+      <label class="w-50" for="login">Email</label>
+      <label for="login">{{userDetailsObj.email}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.bio">
+      <label class="w-50" for="login">Bio</label>
+      <label for="login">{{userDetailsObj.bio}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.company">
+      <label class="w-50" for="login">Company</label>
+      <label for="login">{{userDetailsObj.company}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.blog">
+      <label class="w-50" for="login">Blog</label>
+      <label for="login">{{userDetailsObj.blog}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.location">
+      <label class="w-50" for="login">Location</label>
+      <label for="login">{{userDetailsObj.location}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.repos">
+      <label class="w-50" for="login">
+        <a href="#">Repositories</a>
+      </label>
+      <label for="login">{{userDetailsObj.public_repos}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.followers">
+      <label class="w-50" for="login">Followers</label>
+      <label for="login">{{userDetailsObj.followers}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.following">
+      <label class="w-50" for="login">Following</label>
+      <label for="login">{{userDetailsObj.following}}</label>
+    </div>
+    <div class="mt-2" *ngIf="userDetailsObj.subscriptions">
+      <label class="w-50" for="login">Subscriptions</label>
+      <label for="login">{{userDetailsObj.subscriptions.length}}</label>
+    </div>
+  </div>
 
 </div>

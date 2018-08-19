@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../user.service";
+import { Repos } from "../repos";
 
 @Component({
   selector: "app-display-area",
@@ -23,6 +24,15 @@ export class DisplayAreaComponent implements OnInit {
     this.userDetailsObject = this._user.user;
   }
 
+  getRepositories(): any {
+    this._user
+      .getExtraApiData(this.userDetailsObject.repos_url)
+      .subscribe(data => {
+        this.userRepos = data;
+        console.log(this.userRepos);
+      });
+  }
+
   getSearchData(text: String) {
     this.searchText = text;
     console.log(this.searchText);
@@ -33,15 +43,6 @@ export class DisplayAreaComponent implements OnInit {
       this.reposObj = data;
       console.log(this.reposObj);
     });
-  }
-
-  getRepositories(): any {
-    this._user
-      .getExtraApiData(this.userDetailsObject.repos_url)
-      .subscribe(data => {
-        this.userRepos = data;
-        console.log(this.userRepos);
-      });
   }
 
   getFollowers(): any {
