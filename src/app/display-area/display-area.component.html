@@ -50,7 +50,7 @@
             </li>
             <li class="mx-auto py-2">
               <a href="">Subscriptions
-                <span>{{ userDetailsObject.public_repos}}</span>
+                <span>{{ userDetailsObject.subscriptions}}</span>
               </a>
             </li>
           </ul>
@@ -59,28 +59,7 @@
       <hr>
       <br>
       <!-- Repositories display area -->
-      <div *ngFor="let repo of userRepos">
-        <div class="repos d-flex flex-column">
-          <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">{{repo.name}}</label>
-          <div class="ml-5 mb-2">
-            <div class="d-flex mb-2">
-              <div class="w-50">
-                <label class="w-auto d-inline pl-0 align-items-center d-flex" for="privacy">Private: {{repo.private}}</label>
-                <label class=" w-auto d-inline align-items-center d-flex" for="forks">forks {{repo.forks_count}}</label>
-              </div>
-              <div class="ml-3">
-                <label class="w-auto d-inline align-items-center d-flex" for="commits">default_branch {{repo.default_branch}}</label>
-                <button class="btn btn-dark d-block">
-                  <a href="{{repo.html_url}}" target="_blank">View Repository on Github</a>
-                </button>
-              </div>
-            </div>
-            <label class="form-control-sm mb-0" for="description">Project Description</label>
-            <textarea class="form-control" name="description" disabled id="description" rows="2">
-              {{repo.description}}</textarea>
-          </div>
-        </div>
-      </div>
+      <app-repos [reposUrl]="userReposUrl"></app-repos>
       <!-- followers display area -->
       <div class="user" *ngFor="let follower of userFollowers">
         <div class="user-info d-flex">

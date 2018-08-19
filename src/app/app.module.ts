@@ -7,13 +7,15 @@ import { AppComponent } from "./app.component";
 import { DisplayAreaComponent } from "./display-area/display-area.component";
 import { SearchbarComponent } from "./searchbar/searchbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { ReposComponent } from './repos/repos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayAreaComponent,
     SearchbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ReposComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],

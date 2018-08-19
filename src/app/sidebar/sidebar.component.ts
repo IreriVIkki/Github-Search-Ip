@@ -14,9 +14,5 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this._user.getUserObject();
     this.userDetailsObj = this._user.user;
-    // this._user.getUserObject()
-    // console.log(this.userDetailsObject.name);
-    // console.log(this.userDetailsObj);
-    // });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../user.service";
 import { Repos } from "../repos";
 
@@ -17,6 +17,8 @@ export class DisplayAreaComponent implements OnInit {
   public userFollowing;
   public searchText;
   public reposObj;
+  public newRepos: Array<object>;
+  public userReposUrl: string = "";
   // public clearObj: = new Object();
 
   ngOnInit() {
@@ -25,23 +27,24 @@ export class DisplayAreaComponent implements OnInit {
   }
 
   getRepositories(): any {
-    this._user
-      .getExtraApiData(this.userDetailsObject.repos_url)
-      .subscribe(data => {
-        this.userRepos = data;
-        console.log(this.userRepos);
-      });
+    console.log(this.userDetailsObject.repos_url);
+    this.userReposUrl = this.userDetailsObject.repos_url;
+    // this._user
+    //   .getExtraApiData(this.userDetailsObject.repos_url)
+    //   .subscribe(data => {
+    //     this.userRepos = data;
+    //   });
   }
 
   getSearchData(text: String) {
     this.searchText = text;
-    console.log(this.searchText);
+    // console.log(this.searchText);
     this._user.getUserSearchObject(this.searchText).subscribe(data => {
       this.userDetailsObject = data;
     });
     this._user.getRepoObject(this.searchText).subscribe(data => {
       this.reposObj = data;
-      console.log(this.reposObj);
+      // console.log(this.reposObj);
     });
   }
 
