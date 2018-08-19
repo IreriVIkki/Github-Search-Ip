@@ -18,12 +18,13 @@ export class DisplayAreaComponent implements OnInit {
   public searchText;
   public reposObj;
   public newRepos: Array<object>;
-  public userReposUrl: string = "";
+  public userReposUrl = "";
   // public clearObj: = new Object();
 
   ngOnInit() {
     this._user.getUserObject();
     this.userDetailsObject = this._user.user;
+    this.userReposUrl = this.userDetailsObject.repos_url;
   }
 
   getRepositories(): any {

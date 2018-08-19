@@ -8,6 +8,7 @@ import { DisplayAreaComponent } from "./display-area/display-area.component";
 import { SearchbarComponent } from "./searchbar/searchbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { ReposComponent } from './repos/repos.component';
+import { NumbersDirective } from './numbers.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ReposComponent } from './repos/repos.component';
     DisplayAreaComponent,
     SearchbarComponent,
     SidebarComponent,
-    ReposComponent
+    ReposComponent,
+    NumbersDirective
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],

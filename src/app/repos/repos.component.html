@@ -1,7 +1,6 @@
-<button on-click="check()">check here</button>
-<div *ngFor="let repo of userRepos">
+<div *ngFor="let repo of userRepos" class="my-3 card">
   <div class="repos d-flex flex-column">
-    <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex" for="repoName">{{repo.name}}</label>
+    <label class="form-control-lg w-auto d-inline mb-0 pl-0 align-items-center d-flex card-title" for="repoName">{{repo.name}}</label>
     <div class="ml-5 mb-2">
       <div class="d-flex mb-2">
         <div class="w-50">
