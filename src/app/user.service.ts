@@ -13,10 +13,11 @@ export class UserService {
   user: User;
   repo: Repos;
   apiKey = environment.apiKey;
+  apiId = environment.apiId;
 
-  public user_api = `https://api.github.com/users/melisamalala?access_token=${
-    this.apiKey
-  }`;
+  public user_api = `https://api.github.com/users/melisamalala?client_id=${
+    this.apiId
+  }&client_secret=${this.apiKey}`;
 
   // public search_api =
 
@@ -125,7 +126,9 @@ export class UserService {
   }
 
   getUserSearchObject(text): any {
-    let api_url = `https://api.github.com/search/users?q=${text}`;
+    let api_url = `https://api.github.com/search/users?q=${text}&client_id=${
+      this.apiId
+    }&client_secret=${this.apiKey}`;
     return this._http.get(api_url);
   }
 

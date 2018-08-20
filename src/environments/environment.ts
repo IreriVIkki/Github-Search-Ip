@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiKey: "fddb95f212a813e2dc0d6085a7bacd7ef55a9eda"
-  // apiKey: "1751160b567266b26d9c460347328d72340ae56a"
-};
+  apiKey: "afd82678eee38484114ecb7dc922d3eb5ef5ad59",
+  apiId: "c509aac1e3773deaf68e"
+}; // apiKey: "fddb95f212a813e2dc0d6085a7bacd7ef55a9eda"
 
 /*
  * In development mode, for easier debugging, you can ignore zone related error

@@ -14,6 +14,8 @@ export class SearchbarComponent implements OnInit {
   public userSearch: string;
   public searchUsers;
   public searchRepos;
+  public resultsA: Array<string>;
+  public results: Array<string>;
   @Output()
   searchText: EventEmitter<String> = new EventEmitter<String>();
 
@@ -21,12 +23,13 @@ export class SearchbarComponent implements OnInit {
     this.search = this.userSearch;
     this.searchText.emit(this.search);
     this._user.getUserSearchObject(this.search).subscribe(data => {
+      this.results = [];
       this.searchUsers = data;
-      // console.log(this.searchUsers.items[0].login);
-      // console.log(this.searchUsers.items[1].login);
-      // console.log(this.searchUsers.items[2].login);
-      // console.log(this.searchUsers.items[3].login);
-      // console.log(this.searchUsers.items[4].login);
+      for (let i = 0; i < 5; i++) {
+        this.results.push(this.searchUsers.items[i].login);
+      }
+      // this.results = this.resultsA;
+      console.log(this.results);
     });
     this._user.getReposSearchObject(this.search).subscribe(data => {
       this.searchRepos = data;

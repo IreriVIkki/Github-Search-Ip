@@ -40,7 +40,8 @@ export class DisplayAreaComponent implements OnInit {
   getSearchData(text: String) {
     this.searchText = text;
     this._user.getUserSearchObject(this.searchText).subscribe(data => {
-      this.userDetailsObject = data;
+      this.userDetailsObject = data.items[0];
+      console.log(this.userDetailsObject);
     });
     this._user.getRepoObject(this.searchText).subscribe(data => {
       this.reposObj = data;
