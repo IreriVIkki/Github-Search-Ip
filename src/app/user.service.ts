@@ -12,7 +12,7 @@ import { resolve } from "path";
 export class UserService {
   user: User;
   repo: Repos;
-  apiKey: string = environment.apiKey;
+  apiKey = environment.apiKey;
   public user_api = `https://api.github.com/users/melisamalala?access_token=${
     this.apiKey
   }`;

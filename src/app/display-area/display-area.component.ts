@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../user.service";
 import { Repos } from "../repos";
+import { NumbersDirective } from "../numbers.directive";
 
 @Component({
   selector: "app-display-area",

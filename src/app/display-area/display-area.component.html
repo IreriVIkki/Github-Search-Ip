@@ -33,7 +33,7 @@
       <div>
         <div class="mt-2">
           <ul id="profile-nav" class="d-flex">
-            <li on-click="getRepositories()" class="mx-auto py-2">
+            <li on-click="getRepositories()" NumbersDirective class="mx-auto py-2">
               <a href="#">Repositories
                 <span>{{ userDetailsObject.public_repos}}</span>
               </a>
@@ -89,7 +89,8 @@
         </div>
       </div>
       <!-- following display area -->
-      <div class="user" *ngFor="let following of userfollowing">
+      <div class="user" *ngFor="let following of userFollowing">
+
         <div class="user-info d-flex">
           <div class="name-id w-75 d-flex flex-column">
             <label for="followingName">Name {{following.login}}</label>
