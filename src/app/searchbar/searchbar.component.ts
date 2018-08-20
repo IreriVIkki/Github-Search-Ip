@@ -28,12 +28,13 @@ export class SearchbarComponent implements OnInit {
       for (let i = 0; i < 5; i++) {
         this.results.push(this.searchUsers.items[i].login);
       }
+      this.results.push("Users: " + data.total_count);
       // this.results = this.resultsA;
-      console.log(this.results);
     });
     this._user.getReposSearchObject(this.search).subscribe(data => {
+      console.log("testing");
       this.searchRepos = data;
-      console.log(this.searchRepos);
+      // console.log(this.searchRepos);
     });
   }
 
