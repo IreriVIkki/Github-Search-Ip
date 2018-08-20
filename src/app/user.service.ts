@@ -13,9 +13,12 @@ export class UserService {
   user: User;
   repo: Repos;
   apiKey = environment.apiKey;
+
   public user_api = `https://api.github.com/users/melisamalala?access_token=${
     this.apiKey
   }`;
+
+  // public search_api =
 
   constructor(private _http: HttpClient) {
     this.user = new User(
@@ -32,6 +35,7 @@ export class UserService {
       "",
       0,
       0,
+      "",
       0,
       ""
     );
@@ -72,6 +76,7 @@ export class UserService {
       html_url: string;
       public_repos: number;
       followers: number;
+      followers_url: string;
       following: number;
       subscriptions: string;
     }
@@ -94,6 +99,7 @@ export class UserService {
             this.user.html_url = response.html_url;
             this.user.public_repos = response.public_repos;
             this.user.followers = response.followers;
+            this.user.followers_url = response.followers_url;
             this.user.following = response.following;
             this.user.subscriptions = response.subscriptions;
 
@@ -118,10 +124,14 @@ export class UserService {
     return this._http.get(api_url);
   }
 
-  getUserSearchObject(userName): any {
-    let api_url = `https://api.github.com/users/${userName}?access_token=${
+  getUserSearchObject(text): any {
+    let api_url = `https://api.github.com/search/users?q=${text}`;
+    return this._http.get(api_url);
+  }
+
+  getReposSearchObject(text): any {
+    let repo_api = `https://api.github.com/search/repositories?q=${text}&?${
       this.apiKey
     }`;
-    return this._http.get(api_url);
   }
 }

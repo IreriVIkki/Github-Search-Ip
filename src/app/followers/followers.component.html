@@ -1,0 +1,27 @@
+<div class="user" *ngFor="let follower of followers">
+  <div class="user-info d-flex">
+    <div class="name-id w-75 d-flex flex-column">
+      <label for="followerName">Name {{follower.login}}</label>
+      <label NumbersDirective for="followerId">id: {{follower.id}}</label>
+    </div>
+    <div class="follower-avatar card">
+      <img class="card-img" src="{{follower.avatar_url}}" alt="">
+    </div>
+  </div>
+  <div class="account-details">
+    <ul class="d-flex">
+      <li on-click="getRepositories()" class="mx-auto py-2">
+        <a href="{{ follower.html_url}}">Repositories
+        </a>
+      </li>
+      <li on-click="getFollowers()" class="mx-auto py-2">
+        <a href="{{ follower.html_url}}">Followers
+        </a>
+      </li>
+      <li class="mx-auto py-2">
+        <a href="{{ follower.html_url}}">Following
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

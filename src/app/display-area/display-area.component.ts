@@ -20,43 +20,33 @@ export class DisplayAreaComponent implements OnInit {
   public reposObj;
   public newRepos: Array<object>;
   public userReposUrl = "";
-  // public clearObj: = new Object();
+  public userFollowersUrl = "";
 
   ngOnInit() {
     this._user.getUserObject();
     this.userDetailsObject = this._user.user;
     this.userReposUrl = this.userDetailsObject.repos_url;
+    this.userFollowersUrl = this.userDetailsObject.followers_url;
   }
 
   getRepositories(): any {
-    console.log(this.userDetailsObject.repos_url);
     this.userReposUrl = this.userDetailsObject.repos_url;
-    // this._user
-    //   .getExtraApiData(this.userDetailsObject.repos_url)
-    //   .subscribe(data => {
-    //     this.userRepos = data;
-    //   });
+  }
+
+  getFollowers(): any {
+    this.userFollowersUrl = this.userDetailsObject.followers_url;
   }
 
   getSearchData(text: String) {
     this.searchText = text;
-    // console.log(this.searchText);
     this._user.getUserSearchObject(this.searchText).subscribe(data => {
       this.userDetailsObject = data;
     });
     this._user.getRepoObject(this.searchText).subscribe(data => {
       this.reposObj = data;
-      // console.log(this.reposObj);
     });
   }
 
-  getFollowers(): any {
-    this.userRepos = this._user
-      .getExtraApiData(this.userDetailsObject.followers_url)
-      .subscribe(data => {
-        this.userFollowers = data;
-      });
-  }
   getFollowing(): any {
     this._user
       .getExtraApiData(this.userDetailsObject.following_url)

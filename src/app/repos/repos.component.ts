@@ -20,12 +20,7 @@ export class ReposComponent implements OnInit, OnChanges {
 
   constructor(public _user: UserService) {}
 
-  check() {
-    console.log(this.reposUrl);
-  }
-
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.reposUrl);
     this._user.getExtraApiData(this.reposUrl).subscribe(data => {
       this.userRepos = data;
     });
@@ -35,8 +30,5 @@ export class ReposComponent implements OnInit, OnChanges {
     this._user.getExtraApiData(this.reposUrl).subscribe(data => {
       this.userRepos = data;
     });
-    console.log(this.reposUrl);
-
-    console.log(this.userRepos);
   }
 }

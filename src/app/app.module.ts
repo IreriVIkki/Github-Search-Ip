@@ -9,6 +9,7 @@ import { SearchbarComponent } from "./searchbar/searchbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { ReposComponent } from './repos/repos.component';
 import { NumbersDirective } from './numbers.directive';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NumbersDirective } from './numbers.directive';
     SearchbarComponent,
     SidebarComponent,
     ReposComponent,
-    NumbersDirective
+    NumbersDirective,
+    FollowersComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],

@@ -10,12 +10,18 @@
       <div class="personalDetails d-flex mt-5">
         <div class="details d-flex flex-column">
           <label class="form-control-lg d-flex align-items-center bg-transparent" for="name">{{userDetailsObject.login}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.id">User id: {{userDetailsObject.id}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.email">Email: {{userDetailsObject.email}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.bio">Bio: {{userDetailsObject.bio}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.company">Company: {{userDetailsObject.company}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.blog">Blog: {{userDetailsObject.blog}}</label>
-          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.location">Location: {{userDetailsObject.location}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.id">
+            <span class="mr-4 detailsLabel">User id: </span>{{userDetailsObject.id}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.email">
+            <span class="mr-4 detailsLabel">Email: </span> {{userDetailsObject.email}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.bio">
+            <span class="mr-4 detailsLabel">Bio: </span> {{userDetailsObject.bio}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.company">
+            <span class="mr-4 detailsLabel">Company: </span> {{userDetailsObject.company}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.blog">
+            <span class="mr-4 detailsLabel">Blog: </span> {{userDetailsObject.blog}}</label>
+          <label class="form-control-sm d-flex align-items-center bg-transparent" for="name" *ngIf="userDetailsObject.location">
+            <span class="mr-4 detailsLabel">Location: </span> {{userDetailsObject.location}}</label>
         </div>
         <div class="avatar ml-auto">
           <div class="card">
@@ -61,33 +67,7 @@
       <!-- Repositories display area -->
       <app-repos [reposUrl]="userReposUrl"></app-repos>
       <!-- followers display area -->
-      <div class="user" *ngFor="let follower of userFollowers">
-        <div class="user-info d-flex">
-          <div class="name-id w-75 d-flex flex-column">
-            <label for="followerName">Name {{follower.login}}</label>
-            <label for="followerId">id: {{follower.id}}</label>
-          </div>
-          <div class="follower-avatar card">
-            <img class="card-img" src="{{follower.avatar_url}}" alt="">
-          </div>
-        </div>
-        <div class="account-details">
-          <ul class="d-flex">
-            <li on-click="getRepositories()" class="mx-auto py-2">
-              <a href="{{ follower.html_url}}">Repositories
-              </a>
-            </li>
-            <li on-click="getFollowers()" class="mx-auto py-2">
-              <a href="{{ follower.html_url}}">Followers
-              </a>
-            </li>
-            <li class="mx-auto py-2">
-              <a href="{{ follower.html_url}}">Following
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <app-followers [followersUrl]="userFollowersUrl"></app-followers>
       <!-- following display area -->
       <div class="user" *ngFor="let following of userFollowing">
 

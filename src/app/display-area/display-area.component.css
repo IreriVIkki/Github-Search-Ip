@@ -6,6 +6,10 @@
   display: flex;
 }
 
+.displayLabel {
+  background-color: transparent;
+}
+
 .sidebar {
   grid-area: sidebar;
   width: 30%;
@@ -18,16 +22,10 @@
 
 .details * {
   margin-bottom: 0;
+  font-weight: 400;
   padding: 0;
-  background-color: #eece1a;
 }
 
 .avatar {
   width: 125px;
 }
-
-.follower-avatar {
-  width: 100px;
-}
-
-.profile-nav {}
